@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
 
-// Automatically Escalate Unresolved Tickets
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['escalate_tickets'])) {
   $stmt = $db->prepare("SELECT * FROM tickets WHERE status = 'open' AND created_at < NOW() - INTERVAL 24 HOUR");
   $stmt->execute();
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['escalate_tickets'])) {
       'escalated_by' => 'system'
     ]);
 
-    // Update ticket status to escalated
+
     $stmt = $db->prepare("UPDATE tickets SET status = 'escalated' WHERE ticket_id = :ticket_id");
     $stmt->execute(['ticket_id' => $ticket['ticket_id']]);
   }

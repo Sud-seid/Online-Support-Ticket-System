@@ -2,18 +2,18 @@
 session_start();
 require 'config.php';
 
-// Set JSON header
+
 header('Content-Type: application/json');
 
-// Submit a Ticket
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_ticket'])) {
-  // Check if user is logged in
+
   if (!isset($_SESSION['user_id'])) {
     echo json_encode(["error" => "User not logged in"]);
     exit();
   }
 
-  // Validate input
+
   $user_id = $_SESSION['user_id'];
   $subject = $_POST['subject'];
   $description = $_POST['description'];
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_ticket'])) {
     exit();
   }
 
-  // Insert ticket into database
+
   try {
     $stmt = $db->prepare("INSERT INTO tickets (user_id, subject, description, priority) VALUES (:user_id, :subject, :description, :priority)");
     $stmt->execute([
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_ticket'])) {
   }
 }
 
-// Get All Tickets (For Agents/Admins)
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['get_tickets'])) {
   try {
     $stmt = $db->query("SELECT * FROM tickets");
@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['get_tickets'])) {
   }
 }
 
-// Update Ticket Status
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_ticket'])) {
-  // Validate input
+
   $ticket_id = $_POST['ticket_id'];
   $status = $_POST['status'];
 
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_ticket'])) {
     exit();
   }
 
-  // Update ticket status
+
   try {
     $stmt = $db->prepare("UPDATE tickets SET status = :status WHERE ticket_id = :ticket_id");
     $stmt->execute([

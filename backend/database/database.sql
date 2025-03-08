@@ -1,4 +1,4 @@
--- Users Table
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -8,7 +8,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tickets Table
+
 CREATE TABLE tickets (
     ticket_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE tickets (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
--- Notifications Table
+
 CREATE TABLE notifications (
     notification_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE notifications (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
--- Escalations Table
+
 CREATE TABLE escalations (
     escalation_id INT AUTO_INCREMENT PRIMARY KEY,
     ticket_id INT NOT NULL,

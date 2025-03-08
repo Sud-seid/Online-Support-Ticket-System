@@ -2,12 +2,12 @@
 session_start();
 require 'config.php';
 
-// Set JSON header
+
 header('Content-Type: application/json');
 
-// User Registration
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
-  // Validate input
+
   $username = $_POST['username'];
   $password = $_POST['password'];
   $email = $_POST['email'];
@@ -17,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
     exit();
   }
 
-  // Hash the password
-  $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-  $role = 'customer'; // Default role
 
-  // Insert user into database
+  $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+  $role = 'customer';
+
+
   try {
     $stmt = $db->prepare("INSERT INTO users (username, password, email, role) VALUES (:username, :password, :email, :role)");
     $stmt->execute([
@@ -36,9 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
   }
 }
 
-// User Login
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-  // Validate input
+
   $username = $_POST['username'];
   $password = $_POST['password'];
 
@@ -47,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     exit();
   }
 
-  // Fetch user from database
   try {
     $stmt = $db->prepare("SELECT * FROM users WHERE username = :username");
     $stmt->execute(['username' => $username]);
@@ -69,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
   }
 }
 
-// User Logout
 if (isset($_GET['logout'])) {
   session_destroy();
   echo json_encode(["message" => "Logged out successfully!"]);
