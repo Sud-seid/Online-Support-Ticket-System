@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Tickets</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>View Tickets</h1>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="submit-ticket.html">Submit Ticket</a>
+        <a href="#" id="logout">Logout</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Your Tickets</h2>
+      <table id="ticketsTable">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tickets will be populated here -->
+        </tbody>
+      </table>
+    </main>
+    <script src="scripts/tickets.js"></script>
+  </body>
+</html>
