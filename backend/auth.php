@@ -2,9 +2,7 @@
 session_start();
 require 'config.php';
 
-
 header('Content-Type: application/json');
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
 
@@ -17,10 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
     exit();
   }
 
-
   $passwordHash = password_hash($password, PASSWORD_BCRYPT);
   $role = 'customer';
-
 
   try {
     $stmt = $db->prepare("INSERT INTO users (username, password, email, role) VALUES (:username, :password, :email, :role)");
