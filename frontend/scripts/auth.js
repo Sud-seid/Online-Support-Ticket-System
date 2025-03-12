@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Display username on dashboard
   const usernameElement = document.getElementById("username");
   if (usernameElement) {
     const user = JSON.parse(localStorage.getItem("user"));

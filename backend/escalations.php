@@ -1,7 +1,6 @@
 <?php
 require 'config.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['escalate_tickets'])) {
   $stmt = $db->prepare("SELECT * FROM tickets WHERE status = 'open' AND created_at < NOW() - INTERVAL 24 HOUR");
   $stmt->execute();
