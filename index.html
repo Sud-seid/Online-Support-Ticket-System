@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Support System</title>
+
+    <!-- Corrected Link to CSS -->
+    <link rel="stylesheet" href="frontend/css/styles.css" />
+
+    <!-- Corrected Script Tag for JavaScript -->
+    <script defer src="frontend/js/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Ticket Support System</h1>
+      <button id="theme-toggle">🌙</button>
+    </header>
+
+    <main>
+      <!-- Ticket Submission Form -->
+      <section class="ticket-form">
+        <h2>Submit a Support Ticket</h2>
+        <form id="ticketForm">
+          <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+
+          <div class="input-group">
+            <label for="issue">Issue Type</label>
+            <select id="issue">
+              <option value="">Select an issue</option>
+              <option value="billing">Billing</option>
+              <option value="technical">Technical Support</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Describe your issue"></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Ticket</button>
+        </form>
+      </section>
+
+      <!-- Check Ticket Status Form -->
+      <section class="check-ticket">
+        <h2>Check Ticket Status</h2>
+        <form id="checkTicketForm">
+          <div class="input-group">
+            <label for="ticket_id">Enter Ticket ID</label>
+            <input
+              type="text"
+              id="ticket_id"
+              placeholder="Enter your Ticket ID"
+            />
+          </div>
+          <button type="submit" class="check-btn">Check Status</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Ticket Support System</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="frontend/js/api.js"></script>
+    <script src="frontend/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #007bff;
+  color: white;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Form Containers */
+.ticket-form,
+.check-ticket {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 30px auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.ticket-form:hover,
+.check-ticket:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border: 2px solid #007bff;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #007bff;
+  color: white;
+  margin-top: 30px;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #222;
+  color: white;
+}
+
+.dark-mode .ticket-form,
+.dark-mode .check-ticket,
+.dark-mode header,
+.dark-mode footer {
+  background: #333;
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode button {
+  background: #ff9800;
+}
+
+.dark-mode h2 {
+  color: #ff9800;
+}
